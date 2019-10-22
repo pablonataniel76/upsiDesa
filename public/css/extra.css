@@ -1,0 +1,18 @@
+.vertical{
+    border-left: 6px solid black;
+    height: 460px;
+    position: absolute;
+    left: 50%;
+}
+.vertical1{
+    border-left: 6px solid black;
+    height: 460px;
+    position: absolute;
+    left: 42%;
+}
+.vertical2{
+    border-left: 6px solid black;
+    height: 460px;
+    position: absolute;
+    left: 78%;
+}
