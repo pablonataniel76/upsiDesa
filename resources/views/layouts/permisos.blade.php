@@ -360,8 +360,8 @@
               </a>
           </li>
           
-          <li class="treeview">
-              <a href="#">
+          <li class="treeviews">
+              <a href="{{asset('empresa/postulante')}}">
                 <i class="fa fa-dashboard"></i> <span>Lista de Postulantes</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>

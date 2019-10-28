@@ -26,6 +26,7 @@ Route::view('empresa/registrarse', 'empresa/registrarse');
 Route::view('empresa/buscar', 'empresa/buscarCurriculum');
 Route::resource('empresa/micuenta', 'EmpresaController');
 Route::resource('empresa/anuncios', 'Empresa\AnunciosController');
+Route::resource('empresa/postulante', 'Empresa\postulanteController');
 
 Route::get('/empresa', function () {
     return view('empresa/index');
