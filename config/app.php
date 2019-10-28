@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // ...
-        CollectiveHtmlHtmlServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
         // ...
 
     ],
