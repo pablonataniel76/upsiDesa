@@ -24,7 +24,7 @@ class HabilidadFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_candidato'=>'required',
+            //'id_candidato'=>'required',
             'habilidad'=>'required|max:30|string',
             'anios_habilidad'=>'required|numeric'
         ];

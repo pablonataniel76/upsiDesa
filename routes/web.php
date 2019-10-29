@@ -22,7 +22,6 @@ Route::view('permiso', 'layouts/permisos');
 
 
 Route::view('empresa/registrarse', 'empresa/registrarse');
-
 Route::view('empresa/buscar', 'empresa/buscarCurriculum');
 Route::resource('empresa/micuenta', 'EmpresaController');
 Route::resource('empresa/anuncios', 'Empresa\AnunciosController');
@@ -31,10 +30,6 @@ Route::resource('empresa/postulante', 'Empresa\postulanteController');
 Route::get('/empresa', function () {
     return view('empresa/index');
 });
-
-//Route::get('empresa');
-
-//Route::resource('permisos', 'Empresa\InicioController');
 
 Route::view('pruebabd/based', 'pruebabd/based');
 
@@ -45,10 +40,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/postulante', function () {
     return view('postulante/micuenta');
 });
-
-// Route::get('/empresa', function () {
-//     return view('empresa/micuenta');
-// });
 
 Route::get('/administrador', function () {
     return view('administrador/micuenta');
@@ -71,7 +62,15 @@ Route::get('/postulante/datos', function () {
     return view('postulante/datos');
 });
 
+Route::resource('candidato/postulaciones', 'Postulante\PostulacionController');
+Route::resource('candidato/habilidades', 'Postulante\HabilidadController');
+Route::resource('candidato/idiomas', 'Postulante\IdiomaController');
+Route::resource('candidato/secundarias', 'Postulante\EducacionSecundariaController');
+Route::resource('candidato/universidades', 'Postulante\EducacionUniversitariaController');
+Route::resource('candidato/tecnicas', 'Postulante\EducacionTecnicaController');
+Route::resource('candidato/talleres', 'Postulante\CursoTallerSeminarioController');
 
-Route::resource('candidato/curriculo', 'Postulante\CurriculoController');
-//Route::get('candidato/curriculo','Postulante\CurriculoController@index');
-Route::resource('candidato', 'CandidatoController');
+Route::resource('candidato', 'Postulante\CandidatoController');
+
+Route::get('administrador/candidatos','Administrador\AdministradorController@listarCandidatos');
+Route::get('administrador/empresas','Administrador\AdministradorController@listarEmpresas');

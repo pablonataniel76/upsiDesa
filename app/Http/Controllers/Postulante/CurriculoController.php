@@ -37,12 +37,5 @@ class CurriculoController extends Controller
     public function destroy(){
         
     }
-    public function index2(Request $request){
-        if($request){
-            $curriculos=DB::table('curriculo as cu')
-            ->where('cu.id_candidato','=','100001');
-            $curriculos=$curriculos->get();
-            return view('postulante.curriculo.index',["curriculos"=>$curriculos]);
-        }
-    }
+   
 }
