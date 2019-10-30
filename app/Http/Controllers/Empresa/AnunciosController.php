@@ -22,7 +22,7 @@ class AnunciosController extends Controller
             $anuncios=DB::table('anuncio as an')
             ->where('an.id_empresa','=','101');
             $anuncios=$anuncios->get();
-            return view('empresa.cuentaAnuncios', ["anuncios"=>$anuncios]);
+            return view('empresa/anuncios.index', ["anuncios"=>$anuncios]);
         }
     }
 

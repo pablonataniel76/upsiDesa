@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Empresa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
 use App\Modelos\Postulante;
+use App\Modelos\Curriculo;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\PostulanteFormRequest;
+use App\Http\Requests\CurriculoFormRequest;
 use DB;
 
-class postulanteController extends Controller
+class PostulanteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,9 +27,8 @@ class postulanteController extends Controller
             ->join('curriculo as cu', 'ps.id_curriculo', '=', 'cu.id_curriculo')
             ->where('an.id_empresa','=','101');
             $postulacion=$postulacion->get();
-            return view('empresa.postulante', ["postulacion"=>$postulacion]);
+            return view('empresa/postulante.index', ["postulacion"=>$postulacion]);
         }
-        //return view('empresa.index');
     }
 
     /**
@@ -95,5 +95,15 @@ class postulanteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function detallePostulante($idCurriculo)
+    {
+        $candidato=DB::table('candidato as ca')
+        ->join('curriculo as cu', 'ca.id_candidato', '=', 'cu.id_candidato')
+        //->join('candidato as ca', 'po.id_curriculo', '=', 'cu.id_curriculo')
+        ->where('cu.id_curriculo', '=', $idCurriculo);
+        $candidato=$candidato->get();
+        return view('empresa/postulante.detalle', ["candidato"=>$candidato]);
     }
 }

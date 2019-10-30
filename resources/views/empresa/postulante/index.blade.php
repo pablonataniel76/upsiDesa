@@ -16,30 +16,22 @@
             <th>Contrato</th>
             <th>Descripcion</th>
             <th>Ver Lista</th>
-            {{-- <th>Sueldo</th>
-            <th>Tipo</th>
-            <th>Ciudad</th>
-            <th>Publicacion</th>
-            <th>Vencimiento</th> --}}
         </tr>
         </thead>
         <tbody>
             @foreach ($postulacion  as $ps)
             <tr>
-                {{-- <td>{{$ps->id_anuncio}}</td> --}}
                 <td>{{$ps->id_curriculo}}</td>
                 <td>{{$ps->cargo_anuncio}}</td>
                 <td>{{$ps->categoria_anuncio}}</td>
                 <td>{{$ps->contrato_anuncio}}</td>
                 <td>{{$ps->descripcion_anuncio}}</td>
-                <td><button>Ver</button></td> 
-                {{-- <td>{{$an->sueldo}}</td>
-                <td>{{$an->tipo_sueldo}}</td>
-                <td>{{$an->ciudad_anuncio}}</td>
-                <td>{{$an->publicacion_anuncio}}</td>
-                <td>{{$an->vencimiento_anuncio}}</td> --}}
+                <td>
+                  <a href="{{URL::action('Empresa\PostulanteController@detallePostulante',
+			                  array('idCurriculo'=>$ps->id_curriculo))}}"
+			                  class="list-group-item list-group-item-action">Ver</a>
+                </td>
             </tr>
-                
             @endforeach
         </tbody>
         <tfoot>
@@ -50,11 +42,6 @@
           <th>Contrato</th>
           <th>Descripcion</th>
           <th>Ver Lista</th> 
-          {{-- <th>Sueldo</th>
-          <th>Tipo</th>
-          <th>Ciudad</th>
-          <th>Publicacion</th>
-          <th>Vencimiento</th> --}}
         </tr>
         </tfoot>
       </table>
