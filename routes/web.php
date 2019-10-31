@@ -20,17 +20,17 @@ Route::get('/bd', function () {
 
 Route::view('permiso', 'layouts/permisos');
 
-
 Route::view('empresa/registrarse', 'empresa/registrarse');
-Route::view('empresa/buscar', 'empresa/buscarCurriculum');
-Route::view('empresa/publicar', 'empresa/publicarEmpleo');
 Route::resource('empresa/micuenta', 'EmpresaController');
-Route::resource('empresa/anuncios', 'Empresa\AnunciosController');
+Route::view('empresa/buscar', 'empresa/buscarCurriculum');
 
 Route::resource('empresa/postulante', 'Empresa\PostulanteController');
-//Route::get('empresa/anuncios/edit/{idAnuncio}', 'Empresa\AnunciosController@mostrar');
 Route::get('empresa/postulante/detalle/{idCurriculo}', 'Empresa\PostulanteController@detallePostulante');
+
+Route::resource('empresa/anuncios', 'Empresa\AnunciosController');
+Route::get('empresa/anuncios/create', 'Empresa\AnunciosController@create');
 Route::get('empresa/anuncios/edit/{idAnuncio}', 'Empresa\AnunciosController@edit');
+Route::get('empresa/anuncios/{idAnuncio}/destroy', 'Empresa\AnunciosController@destroy');
 
 Route::resource('empresa', 'Empresa\EmpresaController');
 

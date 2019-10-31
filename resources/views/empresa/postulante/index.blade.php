@@ -1,7 +1,7 @@
 @extends('layouts.permisos')
 @section ('content')
 <div class="rows justify-content-start">
-
+<div class="col-md-11">
 <div class="box">
     <div class="box-header">
         <section class="content-header">
@@ -9,9 +9,9 @@
         </section>
     </div>
     <!-- /.box-header -->
-    <div class="box-body">
+    <div class="box-body pad table-responsive">
 
-       <table id="example2" class="table table-bordered table-hover">
+       <table class="table table-hover">
         <thead>
         <tr>
             <th>Nro</th>
@@ -33,7 +33,7 @@
                 <td>
                   <a href="{{URL::action('Empresa\PostulanteController@detallePostulante',
 			                  array('idCurriculo'=>$ps->id_curriculo))}}"
-			                  class="list-group-item list-group-item-action">Ver</a>
+			                  class="btn btn-primary">Ver</a>
                 </td>
             </tr>
             @endforeach
@@ -53,5 +53,6 @@
     <!-- /.box-body -->
   </div>
   <!-- /.box -->
+</div>
 </div>
 @endsection

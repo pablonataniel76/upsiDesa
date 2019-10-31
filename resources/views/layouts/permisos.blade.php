@@ -346,7 +346,7 @@
           <li class="header">PANEL DE CONTROL</li>
           
           <li class="treeviews">
-            <a href="{{asset('empresa/publicar')}}">
+            <a href="{{asset('empresa/anuncios/create')}}">
               <i class="fa fa-dashboard"></i> <span>Publicar Anuncios</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>

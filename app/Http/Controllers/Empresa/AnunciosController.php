@@ -33,7 +33,7 @@ class AnunciosController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresa/anuncios.create');
     }
 
     /**
@@ -44,7 +44,20 @@ class AnunciosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $anuncios=new Anuncio;
+        $anuncios->id_empresa='101';
+        $anuncios->cargo_anuncio = $request->get('CARGO');
+        $anuncios->categoria_anuncio = $request->get('CATEGORIA');
+        $anuncios->contrato_anuncio = $request->get('CONTRATO');
+        $anuncios->descripcion_anuncio = $request->get('DESCRIPCION');
+        $anuncios->sueldo = $request->get('SUELDO');
+        $anuncios->tipo_sueldo = $request->get('TIPO_SUELDO');
+        $anuncios->ciudad_anuncio = $request->get('CIUDAD');
+        $anuncios->publicacion_anuncio = now();
+        $anuncios->vencimiento_anuncio = now()->addMonth(3);
+
+        $anuncios->save();
+        return Redirect::to('empresa/anuncios');
     }
 
     /**
@@ -81,17 +94,17 @@ class AnunciosController extends Controller
      */
     public function update(AnuncioFormRequest $request, $id)
     {
-        $anuncios = Anuncios::findOrFail($id);
-        // $anuncios->cargo_anuncio = $request->get('CARGO');
-        // $anuncios->categoria_anuncio = $request->get('CATEGORIA');
-        // $anuncios->contrato_anuncio = $request->get('CONTRATO');
-        $anuncios->descripcion_anuncio = $request->get('descripcion');
-        // $anuncios->sueldo_anuncio = $request->get('SUELDO');
-        // $anuncios->tipo_sueldo = $request->get('TIPO_SUELDO');
-        // $anuncios->ciudad_anuncio = $request->get('CIUDAD');
+        $anuncios = Anuncio::findOrFail($id);
+        $anuncios->cargo_anuncio = $request->get('CARGO');
+        $anuncios->categoria_anuncio = $request->get('CATEGORIA');
+        $anuncios->contrato_anuncio = $request->get('CONTRATO');
+        $anuncios->descripcion_anuncio = $request->get('DESCRIPCION');
+        $anuncios->sueldo = $request->get('SUELDO');
+        $anuncios->tipo_sueldo = $request->get('TIPO_SUELDO');
+        $anuncios->ciudad_anuncio = $request->get('CIUDAD');
 
         $anuncios->update();
-        return Redirect::to('empresa');
+        return Redirect::to('empresa/anuncios');
     }
 
     /**
@@ -100,14 +113,11 @@ class AnunciosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_anuncio)
     {
-        //
-    }
-
-    public function mostrar($id)
-    {
-
-        //return view('empresa/anuncios.edit');
+        $anuncio = Anuncio::findOrFail($id_anuncio);
+        $anuncio->delete();
+  
+        return Redirect::to('empresa');
     }
 }
