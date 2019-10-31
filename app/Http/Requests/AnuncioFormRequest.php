@@ -24,7 +24,7 @@ class AnuncioFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_empresa'=>'required',
+            //'id_empresa'=>'required',
             'cargo_anuncio'=>'required|max:30|string',
             'categoria_anuncio'=>'required|max:30|string',
             'contrato_anuncio'=>'required|max:20|string',

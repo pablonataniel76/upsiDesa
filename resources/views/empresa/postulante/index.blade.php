@@ -1,13 +1,17 @@
 @extends('layouts.permisos')
 @section ('content')
 <div class="rows justify-content-start">
-  <div class="box">
+
+<div class="box">
     <div class="box-header">
-      <h3 class="box-title">Mis Postulantes</h3>
+        <section class="content-header">
+            <h1>Mis Postulantes</h1>
+        </section>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-      <table id="example2" class="table table-bordered table-hover">
+
+       <table id="example2" class="table table-bordered table-hover">
         <thead>
         <tr>
             <th>Nro</th>

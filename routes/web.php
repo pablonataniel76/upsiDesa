@@ -23,15 +23,17 @@ Route::view('permiso', 'layouts/permisos');
 
 Route::view('empresa/registrarse', 'empresa/registrarse');
 Route::view('empresa/buscar', 'empresa/buscarCurriculum');
+Route::view('empresa/publicar', 'empresa/publicarEmpleo');
 Route::resource('empresa/micuenta', 'EmpresaController');
 Route::resource('empresa/anuncios', 'Empresa\AnunciosController');
 
 Route::resource('empresa/postulante', 'Empresa\PostulanteController');
+//Route::get('empresa/anuncios/edit/{idAnuncio}', 'Empresa\AnunciosController@mostrar');
 Route::get('empresa/postulante/detalle/{idCurriculo}', 'Empresa\PostulanteController@detallePostulante');
+Route::get('empresa/anuncios/edit/{idAnuncio}', 'Empresa\AnunciosController@edit');
 
-Route::get('/empresa', function () {
-    return view('empresa/index');
-});
+Route::resource('empresa', 'Empresa\EmpresaController');
+
 
 Route::view('pruebabd/based', 'pruebabd/based');
 

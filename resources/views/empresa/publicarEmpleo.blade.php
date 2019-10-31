@@ -3,71 +3,94 @@
 <div class="row justify-content-start">
     <div class="box box-primary">
         <div class="box-header">
-            <h1>PUBLICAR EMPLEO</h1>
+            <section class="content-header">
+                <h1>Publicar Empleo</h1>
+            </section>
         </div>
-        <div>
-            <form action="">
-    <div class="form-group">
-        <label for="EMAIL">Email(*)</label>
-        <input type="email" class="form-control" value="" name="" placeholder="Ingrese el email" required>
+        <div class="row">
+            <section class="content">
+                <div class="col-md-10">
+                <form action="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="CARGO">Cargo</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="CATEGORIA">Categoria</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="CONTRATO">Contrato</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="DESCRIPCION">Descripcion</label>
+                                    <textarea class="form-control" rows="3" placeholder="Descripcion"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="SUELDO">Sueldo</label>
+                                    <input type="number" class="form-control" value="" name="sueldo" placeholder="Sueldo" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="TIPO_SUELDO">Tipo Sueldo</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="CIUDAD">Ciudad</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-       
-        <div class="form-group">
-            <label for="contrasenia">Contraseña(*)</label>
-            <input type="password" class="form-control" name="" placeholder="Ingrese la contraseña" required>
-        </div>
-        <div class="form-group">
-            <label for="contrasenia">Repita la Contraseña(*)</label>
-            <input type="password" class="form-control" name="" placeholder="Repita la contraseña" required>
-        </div>
-        <div class="form-group">
-                <label for="contrasenia">Nombre Empresa</label>
-                <input type="password" class="form-control" name="" placeholder="Ingrese la Nombre Empresa" required>
-            </div>
-        <div class="form-group">
-            <label for="nombre">Nombre Persona Responsable</label>
-            <input type="text" class="form-control" value="" name="" placeholder="Ingrese el/los nombre/s de Persona Responsable" required>
-        </div>
-        <div class="form-group">
-            <label for="apellido">Apellidos Persona Responsable</label>
-            <input type="text" class="form-control" value="" name="" placeholder="Ingrese los apellidos de Persona Responsable" required>
-        </div>
-        <div class="form-group">
-                <label for="apellido">Sitio Web</label>
-                <input type="text" class="form-control" value="" name="" placeholder="Ingrese los Sitio Web" required>
-            </div>
-        <div class="form-group">
-            <label for="apellido">Pais</label>
-            <input type="text" class="form-control" value="" name="" placeholder="Ingrese los apellidos" required>
-        </div>
-        <div class="form-group">
-                <label for="apellido">Ciudad</label>
-                <input type="text" class="form-control" value="" name="" placeholder="Ingrese los apellidos" required>
-            </div>
-        <div class="form-group">
-            <label for="apellido">Direccion</label>
-            <input type="text" class="form-control" value="" name="" placeholder="Ingrese los Direccion" required>
-        </div>
-        <div class="form-group">
-            <label for="telefono">Teléfono(*)</label>
-            <input type="number" class="form-control" value="" name="" placeholder="Ingrese el teléfono" required>
-        </div>
-        <div class="form-group">
-            <label for="codigo">Descripcion Empresa</label>
-            <input type="text" class="form-control" value="" name="" placeholder="Descripcion de Empresa" required>
-        </div>
-        <div class="form-group">
-                <label for="apellido">Logo</label>
-                <input type="text" class="form-control" value="" name="" placeholder="" required>
-            </div>
-        <div class="form-group">
-            <p style="color:red;">Campos obligatorios(*)</p>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-success" type="submit">Guardar</button>
-        </div>        
-</form>
-        </div>
-    </div>
+    </section>
 </div>
 @endsection
