@@ -5,7 +5,7 @@
     <div class="box box-primary">
         <div class="box-header">
             <section class="content-header">
-                <h1>Publicar Anuncio</h1>
+                <h1 class="fa fa-paper-plane">Publicar Anuncio</h1>
             </section>
         </div>
         <div class="row">

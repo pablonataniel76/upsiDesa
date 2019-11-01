@@ -23,7 +23,6 @@ class EmpresaController extends Controller
             $anuncios=$anuncios->get();
             return view('empresa.index', ["anuncios"=>$anuncios]);
         }
-        //return view('empresa.index');
     }
 
     /**
@@ -66,7 +65,7 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**

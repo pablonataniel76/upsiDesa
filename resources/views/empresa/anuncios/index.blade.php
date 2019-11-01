@@ -5,7 +5,7 @@
     <div class="box box-primary">
       <div class="box-header">
         <section class="content-header">
-          <h1>Mis Anuncios</h1>
+          <h1 class="fa fa-bullhorn">Mis Anuncios</h1>
         </section>
       </div>
       <div class="box-body pad table-responsive">

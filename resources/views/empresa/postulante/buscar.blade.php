@@ -6,7 +6,7 @@
             <div class="box-header with-border">
                 <div class="user-block">
                     <section class="content-header">
-                        <h1>Buscar Curriculum</h1>
+                        <h1 class="fa fa-search">Buscar Curriculum</h1>
                     </section>
                 </div>
                 <div class="box-tools">

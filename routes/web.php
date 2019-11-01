@@ -22,7 +22,7 @@ Route::view('permiso', 'layouts/permisos');
 
 Route::view('empresa/registrarse', 'empresa/registrarse');
 Route::resource('empresa/micuenta', 'EmpresaController');
-Route::view('empresa/buscar', 'empresa/buscarCurriculum');
+Route::get('empresa/postulante/buscar', 'Empresa\PostulanteController@buscar');
 
 Route::resource('empresa/postulante', 'Empresa\PostulanteController');
 Route::get('empresa/postulante/detalle/{idCurriculo}', 'Empresa\PostulanteController@detallePostulante');

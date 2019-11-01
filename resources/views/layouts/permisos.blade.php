@@ -347,7 +347,7 @@
           
           <li class="treeviews">
             <a href="{{asset('empresa/anuncios/create')}}">
-              <i class="fa fa-dashboard"></i> <span>Publicar Anuncios</span>
+              <i class="fa fa-paper-plane"></i> <span>Publicar Anuncios</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -355,8 +355,8 @@
           </li>
 
           <li class="treeviews">
-              <a href="{{asset('empresa/buscar')}}">
-                <i class="fa fa-dashboard"></i> <span>Buscar Curriculum</span>
+              <a href="{{asset('empresa/postulante/buscar')}}">
+                <i class="fa fa-search"></i> <span>Buscar Curriculum</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -365,7 +365,7 @@
 
           <li class="treeviews">
               <a href="{{asset('empresa/anuncios')}}">
-                <i class="fa fa-dashboard"></i> <span>Mis Anuncios de Empleo</span>
+                <i class="fa fa-bullhorn"></i> <span>Mis Anuncios de Empleo</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -374,7 +374,7 @@
           
           <li class="treeviews">
               <a href="{{asset('empresa/postulante')}}">
-                <i class="fa fa-dashboard"></i> <span>Lista de Postulantes</span>
+                <i class="fa fa-list-alt"></i> <span>Lista de Postulantes</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>

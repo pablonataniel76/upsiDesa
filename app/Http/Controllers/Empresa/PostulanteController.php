@@ -106,4 +106,9 @@ class PostulanteController extends Controller
         $candidato=$candidato->get();
         return view('empresa/postulante.detalle', ["candidato"=>$candidato]);
     }
+
+    public function buscar()
+    {
+        return view('empresa/postulante.buscar');
+    }
 }

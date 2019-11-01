@@ -4,7 +4,9 @@
   <div class="col-md-11">
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title">Mis Postulantes</h3>
+        <section class="content-header">
+          <h1 class="fa fa-group">Mis Postulantes</h1>
+        </section>
       </div>
       <!-- /.box-header -->
       <div class="box-body pad table-responsive">

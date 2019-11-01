@@ -4,7 +4,7 @@
     <div class="box box-primary">
         <div class="box-header">
             <section class="content-header">
-                <h1>Editar Anuncio</h1>
+                <h1 class="fa fa-edit">Editar Anuncio</h1>
             </section>
         </div>
         <div class="row">

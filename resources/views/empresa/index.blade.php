@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="row justify-content-start">
-    <h2 class="page-header">Publicaciones En Curso</h2>
+  <div class="col-md-11">
+    <h2 class="page-header fa fa-comments-o">Publicaciones En Curso</h2>
     @foreach ($anuncios  as $an)
     <div class="col-md-4">
             <!-- Box Comment -->
@@ -51,5 +52,7 @@
         </div>
         <!-- /.row -->
     @endforeach
+  </div>
+    
 </div>
 @endsection

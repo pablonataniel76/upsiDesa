@@ -5,7 +5,7 @@
 <div class="box">
     <div class="box-header">
         <section class="content-header">
-            <h1>Mis Postulantes</h1>
+            <h1 class="fa fa-list-alt">Mis Postulantes</h1>
         </section>
     </div>
     <!-- /.box-header -->
