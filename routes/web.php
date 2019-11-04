@@ -19,21 +19,23 @@ Route::get('/bd', function () {
 });
 
 Route::view('permiso', 'layouts/permisos');
-
+//---Rutas Pablo no alterar orden
+Route::get('empresa/postulante/myPDF', 'Empresa\PostulanteController@generatePDF');
 Route::view('empresa/registrarse', 'empresa/registrarse');
 Route::resource('empresa/micuenta', 'EmpresaController');
 Route::get('empresa/postulante/buscar', 'Empresa\PostulanteController@buscar');
-
+//Rutas Empresa
 Route::resource('empresa/postulante', 'Empresa\PostulanteController');
 Route::get('empresa/postulante/detalle/{idCurriculo}', 'Empresa\PostulanteController@detallePostulante');
-
+Route::get('empresa/postulante/detalle/{idCurriculo}/myPDF', 'Empresa\PostulanteController@generatePDF');
+//Rutas Anuncio
 Route::resource('empresa/anuncios', 'Empresa\AnunciosController');
 Route::get('empresa/anuncios/create', 'Empresa\AnunciosController@create');
 Route::get('empresa/anuncios/edit/{idAnuncio}', 'Empresa\AnunciosController@edit');
 Route::get('empresa/anuncios/{idAnuncio}/destroy', 'Empresa\AnunciosController@destroy');
-
+//Ruta Origen
 Route::resource('empresa', 'Empresa\EmpresaController');
-
+//---
 
 Route::view('pruebabd/based', 'pruebabd/based');
 

@@ -33,7 +33,9 @@
               <td>{{$ca->ciudad_candidato}}</td>
               <td>{{$ca->telefono_candidato}}</td>
               <td>{{$ca->celular_candidato}}</td>
-              <td>{{$ca->ruta_curriculo}}</td>
+              <td><a href="{{URL::action('Empresa\PostulanteController@generatePDF',
+                array('idCurriculo'=>$ca->ruta_curriculo))}}"
+                class="btn btn-primary">Descargar</a></td>
             </tr>
             @endforeach
           </tbody>

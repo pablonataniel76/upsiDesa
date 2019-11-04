@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\PostulanteFormRequest;
 use App\Http\Requests\CurriculoFormRequest;
 use DB;
+use PDF;
 
 class PostulanteController extends Controller
 {
@@ -110,5 +111,18 @@ class PostulanteController extends Controller
     public function buscar()
     {
         return view('empresa/postulante.buscar');
+    }
+
+    public function generatePDF()
+    {
+        $candidato=DB::table('candidato as ca')
+        ->join('curriculo as cu', 'ca.id_candidato', '=', 'cu.id_candidato');
+        //->join('candidato as ca', 'po.id_curriculo', '=', 'cu.id_curriculo')
+        $candidato=$candidato->get();
+        //return view('empresa/postulante.myPDF', ["candidato"=>$candidato]);
+
+        $data = ['title' => 'Welcome to HDTuto.com'];
+        $pdf = PDF::loadView('empresa/postulante/myPDF', ["candidato"=>$candidato]);
+        return $pdf->download('itsolutionstuff.pdf');
     }
 }
