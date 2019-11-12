@@ -13,14 +13,14 @@
 
        <table class="table table-hover">
         <thead>
-        <tr>
-            <th>Nro</th>
-            <th>Cargo</th>
-            <th>Categoria</th>
-            <th>Contrato</th>
-            <th>Descripcion</th>
-            <th>Ver Lista</th>
-        </tr>
+          <tr>
+              <th>Nro</th>
+              <th>Cargo</th>
+              <th>Categoria</th>
+              <th>Contrato</th>
+              <th>Descripcion</th>
+              <th>Ver Lista</th>
+          </tr>
         </thead>
         <tbody>
             @foreach ($postulacion  as $ps)
@@ -39,14 +39,14 @@
             @endforeach
         </tbody>
         <tfoot>
-        <tr>
-          <th>Nro</th>
-          <th>Cargo</th>
-          <th>Categoria</th>
-          <th>Contrato</th>
-          <th>Descripcion</th>
-          <th>Ver Lista</th> 
-        </tr>
+          <tr>
+            <th>Nro</th>
+            <th>Cargo</th>
+            <th>Categoria</th>
+            <th>Contrato</th>
+            <th>Descripcion</th>
+            <th>Ver Lista</th> 
+          </tr>
         </tfoot>
       </table>
     </div>

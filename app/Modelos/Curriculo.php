@@ -23,4 +23,26 @@ class Curriculo extends Model
     protected $guarded =[
 
     ];
+
+    //Scope Query revisar editables
+    public function scopeCategoria($query, $categoria)
+    {
+        if($categoria){
+            return $query->where('categoria_curriculo', 'LIKE', "%$categoria%");
+        }
+    }
+
+    public function scopeCiudad($query, $ciudad)
+    {
+        if($ciudad){
+            return $query->where('ciudad_curriculo', '=', "$ciudad");
+        }
+    }
+
+    public function scopeContrato($query, $contrato)
+    {
+        if($contrato){
+            return $query->where('contrato_curriculo', 'LIKE', "%$contrato%");
+        }
+    }
 }

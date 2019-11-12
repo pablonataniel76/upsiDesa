@@ -95,13 +95,13 @@ class AnunciosController extends Controller
     public function update(AnuncioFormRequest $request, $id)
     {
         $anuncios = Anuncio::findOrFail($id);
-        $anuncios->cargo_anuncio = $request->get('CARGO');
-        $anuncios->categoria_anuncio = $request->get('CATEGORIA');
-        $anuncios->contrato_anuncio = $request->get('CONTRATO');
-        $anuncios->descripcion_anuncio = $request->get('DESCRIPCION');
-        $anuncios->sueldo = $request->get('SUELDO');
-        $anuncios->tipo_sueldo = $request->get('TIPO_SUELDO');
-        $anuncios->ciudad_anuncio = $request->get('CIUDAD');
+        $anuncios->cargo_anuncio        = $request->get('CARGO');
+        $anuncios->categoria_anuncio    = $request->get('CATEGORIA');
+        $anuncios->contrato_anuncio     = $request->get('CONTRATO');
+        $anuncios->descripcion_anuncio  = $request->get('DESCRIPCION');
+        $anuncios->sueldo               = $request->get('SUELDO');
+        $anuncios->tipo_sueldo          = $request->get('TIPO_SUELDO');
+        $anuncios->ciudad_anuncio       = $request->get('CIUDAD');
 
         $anuncios->update();
         return Redirect::to('empresa/anuncios');

@@ -105,25 +105,24 @@
     </head>
 
     <body>
-        <h1>{{$candidato}}</h1>
-        <h1>John Smith</h1>
+    <h1>{{$candidato[0]->nombre_candidato}} {{$candidato[0]->apellido_candidato}}</h1>
         <p id="bio_left">
-            (408) 555-1212
+            {{$candidato[0]->telefono_candidato}} - {{$candidato[0]->celular_candidato}}
             <br>	
             <script type="text/javascript">email();</script>
-            <a href="mailto:john.smith@example.com">john.smith@example.com</a>
+            <a href="mailto:john.smith@example.com">{{$candidato[0]->email_candidato}}</a>
         </p>
-        <p id="bio_right">123 Any Street<br>City, State 99999</p>
+        <p id="bio_right">{{$candidato[0]->direccion_candidato}}<br>{{$candidato[0]->ciudad_candidato}}, Bolivia</p>
 
-        <h2>OBJECTIVE</h2>
-        <p class="data">To find a job, etc.</p>
+        <h2>OBJETIVO</h2>
+        <p class="data">{{$candidato[0]->presentacion_biografica}}.</p>
 
-        <h2>EXPERIENCE</h2>
+        <h2>EXPERIENCIA</h2>
         <div class="job">
             <p class="date">2000-Present</p>
             <div class="job_data">
                 <h3><a href="http://example.com/">Company Name</a></h3>
-                <p class="location">City, State</p>
+                <p class="location">{{$candidato[0]->ciudad_candidato}}, Bolivia</p>
                 <p class="company">Company description.</p>
                 <p class="position">Position/Title</p>
                 <ul>
@@ -145,7 +144,7 @@
             <p class="date">1995-2000</p>
             <div class="job_data">
                 <h3>Company Name</h3>
-                <p class="location">City, State</p>
+                <p class="location">{{$candidato[0]->ciudad_candidato}}, Bolivia</p>
                 <p class="company">Company description.</p>
                 <p class="position">Position/Title</p>
                 <ul>
@@ -157,14 +156,14 @@
             </div>
         </div>
 
-        <h2>SKILLS, TECHNOLOGIES &amp; PROJECTS</h2>
+        <h2>HABILIDADES, TECNOLOGIAS &amp; PROYECTOS</h2>
         <ul>
             <li>Skill description #1</li>
             <li>Skill description #2</li>
             <li>Skill description #3</li>
         </ul>
 
-        <h2>EDUCATION &amp; INTERESTS</h2>
+        <h2>EDUCACION &amp; INTERESES</h2>
         <ul>
             <li>Degree description</li>
             <li>Interest description</li>
