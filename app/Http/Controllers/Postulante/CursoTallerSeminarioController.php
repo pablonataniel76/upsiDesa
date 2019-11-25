@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Postulante;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\CursoTallerSeminario;
+use App\Modelos\CursoTallerSeminario;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\CursoTallerSeminarioFormRequest;
 use DB;
@@ -38,8 +38,23 @@ class CursoTallerSeminarioController extends Controller
     public function show(){
         
     }
-    public function edit(){
-        
+    public function edit($tall){
+        $taller=DB::table('curso_taller_seminario as cts')
+            ->where('cts.id_candidato','=','100001')
+            ->where('cts.nombre_taller','=',$tall)
+            ->first();
+        return view('postulante.taller.edit',["taller"=>$taller]);
+    }
+    public function update(CursoTallerSeminarioFormRequest $request,$tall){
+       
+        $taller=CursoTallerSeminario::where('id_candidato',100001)
+        ->where('nombre_taller',$tall)
+        ->update(['nombre_taller'=>$request->get('nombre_taller'),
+        'impartido_por'=>$request->get('impartido_por'),
+        'lugar_taller'=>$request->get('lugar_taller'),
+        'fecha_taller'=>$request->get('fecha_taller')  
+        ]);
+        return Redirect::to('candidato/talleres');
     }
     public function destroy(){
         

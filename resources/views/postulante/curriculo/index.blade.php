@@ -5,7 +5,13 @@
         <div class="col-xs-12">
               <div class="box">
                     <div class="box-header">
-                      <h3 class="box-title">MIS CURRICULOS</h3>
+                        <section class="content-header">
+                            <h1 class="fa fa-files-o">Mis Curriculum</h1>
+                        </section>
+                        <br>
+                      <div class="col col-xs-4">
+                          <a href="curriculo/create"> <button type="button" class="btn btn-block btn-success">Crear un nuevo Curriculo</button></a> 
+                      </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -16,6 +22,7 @@
                             <th>Ruta</th>
                             <th>Publicacion</th>
                             <th>Titulo</th>
+                            <th>Descargar</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -25,6 +32,9 @@
                                 <td>{{$cu->ruta_curriculo}}</td>
                                 <td>{{$cu->publicacion_curriculo}}</td>
                                 <td>{{$cu->titulo_curriculo}}</td>
+                                <td><a href="{{URL::action('Postulante\CurriculoController@descargarpdf',
+                                  array('ruta'=>$cu->ruta_curriculo))}}"
+                                  class="btn btn-primary">Descargar</a></td>
                             </tr>
                                 
                             @endforeach
@@ -35,6 +45,7 @@
                             <th>Ruta</th>
                             <th>Publicacion</th>
                             <th>Titulo</th>
+                            <th>Descargar</th>
                         </tr>
                         </tfoot>
                       </table>

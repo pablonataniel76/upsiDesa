@@ -6,8 +6,10 @@
     <div class="box">
         <div class="box-header">
           <div class="col col-xs-4">
-            <h3 class="box-title">MIS ESTUDIOS TECNICOS </h3>
-            <br><br>
+              <section class="content-header">
+                  <h1 class="fa fa-building">Mis Estudios Tecnicos</h1>
+              </section>
+              <br>
             <a href="tecnicas/create"> <button type="button" class="btn btn-block btn-success">Añadir Educacion Tecnica</button></a> 
           </div>
         </div>
@@ -33,7 +35,7 @@
                   <td>{{$te->ciudad_tecnico}}</td>
                   <td>{{$te->fecha_curso_tecnico}}</td>
                   <td>
-                    <a href=""> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
+                    <a href="{{URL::action('Postulante\EducacionTecnicaController@editar',array('inst'=>$te->institucion_tecnica,'cur'=>$te->curso_tecnico))}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
               </tr>
                   

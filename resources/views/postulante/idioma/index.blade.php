@@ -6,8 +6,10 @@
     <div class="box">
         <div class="box-header">
           <div class="col col-xs-4">
-            <h3 class="box-title">MIS IDIOMAS </h3>
-            <br><br>
+            <section class="content-header">
+                <h1 class="fa fa-language">Mis Idiomas</h1>
+            </section>
+            <br>
             <a href="idiomas/create"> <button type="button" class="btn btn-block btn-success">Añadir Idioma</button></a> 
           </div>
         </div>
@@ -31,7 +33,7 @@
                   <td>{{$id->nivel_oral}}</td>
                   <td>{{$id->nivel_lectura}}</td>
                   <td>
-                    <a href=""> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
+                    <a href="{{URL::action('Postulante\IdiomaController@edit',$id->idioma)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
               </tr>
                   

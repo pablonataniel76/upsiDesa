@@ -5,9 +5,11 @@
   <div class="col-xs-12">
     <div class="box">
         <div class="box-header">
+          <section class="content-header">
+              <h1 class="fa fa-gears">Mis Cursos, Talleres y Seminarios</h1>
+          </section>
           <div class="col col-xs-4">
-            <h3 class="box-title">MIS CURSOS, TALLERES, SEMINARIOS </h3>
-            <br><br>
+              <br>
             <a href="talleres/create"> <button type="button" class="btn btn-block btn-success">Añadir Curso, Taller o Seminario</button></a> 
           </div>
         </div>
@@ -31,7 +33,7 @@
                   <td>{{$cts->lugar_taller}}</td>
                   <td>{{$cts->fecha_taller}}</td>
                   <td>
-                    <a href=""> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
+                    <a href="{{URL::action('Postulante\CursoTallerSeminarioController@edit',$cts->nombre_taller)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
               </tr>
                   

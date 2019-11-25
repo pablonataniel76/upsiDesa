@@ -6,8 +6,10 @@
     <div class="box">
         <div class="box-header">
           <div class="col col-xs-4">
-            <h3 class="box-title">MIS UNIVERSIDADES </h3>
-            <br><br>
+              <section class="content-header">
+                  <h1 class="fa fa-university">Mis Universidades</h1>
+              </section>
+              <br>
             <a href="universidades/create"> <button type="button" class="btn btn-block btn-success">Añadir Universidad</button></a> 
           </div>
         </div>
@@ -33,7 +35,7 @@
                   <td>{{$un->ciudad_univeridad}}</td>
                   <td>{{$un->fecha_fin_universidad}}</td>
                   <td>
-                    <a href=""> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
+                    <a href="{{URL::action('Postulante\EducacionUniversitariaController@editar',array('uni'=>$un->universidad,'carr'=>$un->carrera))}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
               </tr>
                   

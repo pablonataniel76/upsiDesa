@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Postulante;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Postulacion;
+use App\Modelos\Postulacion;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\PostulacionFormRequest;
 use DB;
@@ -30,8 +30,12 @@ class PostulacionController extends Controller
     public function create(){
         
     }
-    public function store(){
-        
+    public function store(PostulacionFormRequest $request){
+        $postulacion=new Postulacion;
+        $postulacion->id_anuncio=$request->get('id_anuncio');
+        $postulacion->id_curriculo=$request->get('id_curriculo');
+        $postulacion->save();
+        return Redirect::to('candidato/anuncios');
     }
     public function show(){
         

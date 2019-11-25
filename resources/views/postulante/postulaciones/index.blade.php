@@ -5,7 +5,9 @@
         <div class="col-xs-12">
               <div class="box">
                     <div class="box-header">
-                      <h3 class="box-title">MIS POSTULACIONES</h3>
+                        <section class="content-header">
+                            <h1 class="fa fa-edit">Mis Postulaciones</h1>
+                        </section>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

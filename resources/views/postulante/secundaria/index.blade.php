@@ -6,8 +6,10 @@
     <div class="box">
         <div class="box-header">
           <div class="col col-xs-4">
-            <h3 class="box-title">MIS COLEGIOS DE SECUNDARIA </h3>
-            <br><br>
+              <section class="content-header">
+                  <h1 class="fa fa-graduation-cap">Mis Colegios de Secundaria</h1>
+              </section>
+              <br>
             <a href="secundarias/create"> <button type="button" class="btn btn-block btn-success">Añadir Colegio Secundaria</button></a> 
           </div>
         </div>
@@ -31,7 +33,7 @@
                   <td>{{$se->ciudad_secundaria}}</td>
                   <td>{{$se->fecha_fin_secundaria}}</td>
                   <td>
-                    <a href=""> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
+                    <a href="{{URL::action('Postulante\EducacionSecundariaController@edit',$se->institucion_secundaria)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
               </tr>
                   

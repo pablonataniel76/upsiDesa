@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Postulante;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Habilidad;
+use App\Modelos\Habilidad;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\HabilidadFormRequest;
 use DB;
@@ -36,8 +36,21 @@ class HabilidadController extends Controller
     public function show(){
         
     }
-    public function edit(){
-        
+    public function edit($hab){
+        $habilidad=DB::table('habilidad as ha')
+            ->where('ha.id_candidato','=','100001')
+            ->where('ha.habilidad','=',$hab)
+            ->first();
+        return view('postulante.habilidad.edit',["habilidad"=>$habilidad]);
+    }
+    public function update(HabilidadFormRequest $request,$hab){
+       
+        $habilidad=Habilidad::where('id_candidato',100001)
+        ->where('habilidad',$hab)
+        ->update(['habilidad'=>$request->get('habilidad'),
+        'anios_habilidad'=>$request->get('anios_habilidad') 
+        ]);
+        return Redirect::to('candidato/habilidades');
     }
     public function destroy(){
         

@@ -6,8 +6,10 @@
     <div class="box">
         <div class="box-header">
           <div class="col col-xs-4">
-            <h3 class="box-title">MIS HABILIDADES </h3>
-            <br><br>
+              <section class="content-header">
+                  <h1 class="fa fa-wrench">Mis Habilidades</h1>
+              </section>
+              <br>
             <a href="habilidades/create"> <button type="button" class="btn btn-block btn-success">Añadir Habilidad</button></a> 
           </div>
         </div>
@@ -27,7 +29,7 @@
                   <td>{{$ha->habilidad}}</td>
                   <td>{{$ha->anios_habilidad}}</td>
                   <td>
-                    <a href=""> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
+                    <a href="{{URL::action('Postulante\HabilidadController@edit',$ha->habilidad)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
             </td>
               </tr>
                   
