@@ -28,7 +28,7 @@ class Curriculo extends Model
     public function scopeCategoria($query, $categoria)
     {
         if($categoria){
-            return $query->where('categoria_curriculo', 'LIKE', "%$categoria%");
+            return $query->where('categoria_curriculo', '=', "$categoria");
         }
     }
 
@@ -42,7 +42,7 @@ class Curriculo extends Model
     public function scopeContrato($query, $contrato)
     {
         if($contrato){
-            return $query->where('contrato_curriculo', 'LIKE', "%$contrato%");
+            return $query->where('contrato_curriculo', '=', "$contrato");
         }
     }
 }

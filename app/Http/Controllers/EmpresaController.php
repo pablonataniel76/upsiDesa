@@ -67,7 +67,7 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('empresa.update');
     }
 
     /**

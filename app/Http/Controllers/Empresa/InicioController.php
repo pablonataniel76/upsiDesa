@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Empresa;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modelos\Empresa;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\AnuncioFormRequest;
 use DB;
@@ -17,13 +18,7 @@ class InicioController extends Controller
      */
     public function index(Request $request)
     {
-        if($request){
-            $nombre=DB::table('empresa as em')
-            ->where('em.id_empresa','=','101');
-            $nombre=$nombre->get();
-            return view('empresa.permisos', ["nombre"=>$nombre]);
-        }
-        //return view('empresa.index');
+
     }
 
     /**

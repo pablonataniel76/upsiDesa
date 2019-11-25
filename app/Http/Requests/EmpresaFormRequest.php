@@ -34,8 +34,8 @@ class EmpresaFormRequest extends FormRequest
             'nombre_responsable'=>'required|max:30|string',
             'sitio_web'=>'max:50|string',
             'descripcion_empresa'=>'required|max:500|string',
-            'logo'=>'required|max:100',
-            'premium_empresa'=>'required'
+            'logo'=>'required|max:100'//,
+            //'premium_empresa'=>'required'
         ];
     }
 }

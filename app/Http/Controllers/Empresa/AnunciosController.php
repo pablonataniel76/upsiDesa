@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Empresa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Anuncio;
+use App\Modelos\Empresa;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\AnuncioFormRequest;
 use DB;
@@ -20,6 +21,7 @@ class AnunciosController extends Controller
     {
         if($request){
             $anuncios=DB::table('anuncio as an')
+            ->join('empresa as em', 'em.id_empresa', '=', 'an.id_empresa')
             ->where('an.id_empresa','=','101');
             $anuncios=$anuncios->get();
             return view('empresa/anuncios.index', ["anuncios"=>$anuncios]);
@@ -32,8 +34,12 @@ class AnunciosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('empresa/anuncios.create');
+    {   
+            $anuncios=DB::table('anuncio as an')
+            ->join('empresa as em', 'em.id_empresa', '=', 'an.id_empresa')
+            ->where('an.id_empresa','=','101');
+            $anuncios=$anuncios->get();
+        return view('empresa/anuncios.create', ["anuncios"=>$anuncios]);
     }
 
     /**
@@ -80,6 +86,7 @@ class AnunciosController extends Controller
     public function edit($id)
     {
         $anuncios=DB::table('anuncio as an')
+        ->join('empresa as em', 'em.id_empresa', '=', 'an.id_empresa')
         ->where('an.id_anuncio','=', $id);
         $anuncios=$anuncios->get();
         return view('empresa/anuncios.edit', ["anuncios"=>$anuncios]);

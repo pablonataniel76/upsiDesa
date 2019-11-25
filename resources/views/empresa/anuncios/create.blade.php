@@ -74,17 +74,21 @@
                                 <div class="form-group">
                                     <label for="CIUDAD">Ciudad</label>
                                     <select name="CIUDAD" class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        <option value="Cochabamba">Cochabamba</option>
+                                        <option value="Santa Cruz">Santa Cruz</option>
+                                        <option value="La Paz">La Paz</option>
+                                        <option value="Oruro">Oruro</option>
+                                        <option value="Potosi">Potosi</option>
+                                        <option value="Sucre">Sucre</option>
+                                        <option value="Tarija">Tarija</option>
+                                        <option value="Beni">Beni</option>
+                                        <option value="Pando">Pando</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="box-footer">
+                            <div class="">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                 <a href="{{ url()->previous() }}" class="btn btn-danger">Cancelar</a>
                             </div>

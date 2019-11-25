@@ -18,11 +18,8 @@ Route::get('/bd', function () {
     return view('welcome');
 });
 
-Route::view('permiso', 'layouts/permisos');
 //---Rutas Pablo no alterar orden
 Route::get('empresa/postulante/myPDF', 'Empresa\PostulanteController@generatePDF');
-Route::view('empresa/registrarse', 'empresa/registrarse');
-Route::resource('empresa/micuenta', 'EmpresaController');
 Route::get('empresa/postulante/buscar', 'Empresa\PostulanteController@buscar')->name('buscar');
 //Rutas Empresa
 Route::resource('empresa/postulante', 'Empresa\PostulanteController');
@@ -35,7 +32,10 @@ Route::get('empresa/anuncios/edit/{idAnuncio}', 'Empresa\AnunciosController@edit
 Route::get('empresa/anuncios/{idAnuncio}/destroy', 'Empresa\AnunciosController@destroy');
 //Ruta Origen
 Route::resource('empresa', 'Empresa\EmpresaController');
+Route::get('empresa/create', 'Empresa\EmpresaController@create');
+Route::get('empresa/edit/{idEmpresa}', 'Empresa\EmpresaController@edit');
 //---
+Route::resource('permisos', 'Empresa\InicioController');
 
 Route::view('pruebabd/based', 'pruebabd/based');
 
@@ -50,7 +50,6 @@ Route::get('/postulante', function () {
 Route::get('/administrador', function () {
     return view('administrador/micuenta');
 });
-
 
 Route::get('/inicio', function () {
     return view('inicio');
@@ -68,6 +67,15 @@ Route::get('/postulante/datos', function () {
     return view('postulante/datos');
 });
 
+//rutas jess
+Route::get('candidato/curriculo/pdf','Postulante\CurriculoController@pdf');
+Route::get('candidato/curriculo/mipdf/{ruta}','Postulante\CurriculoController@descargarpdf');
+Route::get('candidato/universidades/edit/{uni}/{carr}','Postulante\EducacionUniversitariaController@editar');
+Route::get('candidato/tecnicas/edit/{inst}/{cur}','Postulante\EducacionTecnicaController@editar');
+Route::get('candidato/experiencia/edit/{carg}/{emp}','Postulante\ExperienciaLaboralController@editar');
+
+Route::resource('candidato/curriculo', 'Postulante\CurriculoController');
+
 Route::resource('candidato/postulaciones', 'Postulante\PostulacionController');
 Route::resource('candidato/habilidades', 'Postulante\HabilidadController');
 Route::resource('candidato/idiomas', 'Postulante\IdiomaController');
@@ -75,7 +83,12 @@ Route::resource('candidato/secundarias', 'Postulante\EducacionSecundariaControll
 Route::resource('candidato/universidades', 'Postulante\EducacionUniversitariaController');
 Route::resource('candidato/tecnicas', 'Postulante\EducacionTecnicaController');
 Route::resource('candidato/talleres', 'Postulante\CursoTallerSeminarioController');
+Route::resource('candidato/anuncios', 'Postulante\AnuncioController');
+Route::resource('candidato/experiencia', 'Postulante\ExperienciaLaboralController');
 
+//Route::get('candidato/anuncios/{id}/{id2}','Postulante\AnuncioController@mostrar');
+
+//de esta ruta solo hay candidato/create
 Route::resource('candidato', 'Postulante\CandidatoController');
 
 Route::get('administrador/candidatos','Administrador\AdministradorController@listarCandidatos');

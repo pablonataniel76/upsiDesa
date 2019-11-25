@@ -13,7 +13,7 @@
             <div class="box box-default collapsed-box">
               <div class="box-header with-border">
                 <div class="user-block">
-                  <img class="img-circle" src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Image">
+                  <img class="img-circle" src="logos_empresa/{{ $an->logo }}" alt="User Image">
                   <span class="username"><a href="#">{{$an->nombre_empresa}}</a></span>
                   <span class="description">Publicado en: {{$an->publicacion_anuncio}}</span>
                   <span class="description">{{$an->categoria_anuncio}}</span>

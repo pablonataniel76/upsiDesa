@@ -25,12 +25,18 @@ class PostulanteController extends Controller
     public function index(Request $request)
     {
         if($request){
+
+            $anuncios=DB::table('empresa as em')
+            ->join('anuncio as an', 'em.id_empresa', '=', 'an.id_empresa')
+            ->where('em.id_empresa','=','101');
+            $anuncios=$anuncios->get();    
+
             $postulacion=DB::table('postulacion as ps')
             ->join('anuncio as an', 'ps.id_anuncio', '=', 'an.id_anuncio')
             ->join('curriculo as cu', 'ps.id_curriculo', '=', 'cu.id_curriculo')
             ->where('an.id_empresa','=','101');
             $postulacion=$postulacion->get();
-            return view('empresa/postulante.index', ["postulacion"=>$postulacion]);
+            return view('empresa/postulante.index', ["postulacion"=>$postulacion, "anuncios"=>$anuncios]);
         }
     }
 
@@ -102,27 +108,37 @@ class PostulanteController extends Controller
 
     public function detallePostulante($idCurriculo)
     {
+        $anuncios=DB::table('empresa as em')
+            ->join('anuncio as an', 'em.id_empresa', '=', 'an.id_empresa')
+            ->where('em.id_empresa','=','101');
+            $anuncios=$anuncios->get();  
+
         $candidato=DB::table('candidato as ca')
         ->join('curriculo as cu', 'ca.id_candidato', '=', 'cu.id_candidato')
         //->join('candidato as ca', 'po.id_curriculo', '=', 'cu.id_curriculo')
         ->where('cu.id_curriculo', '=', $idCurriculo);
         $candidato=$candidato->get();
-        return view('empresa/postulante.detalle', ["candidato"=>$candidato]);
+        return view('empresa/postulante.detalle', ["candidato"=>$candidato, "anuncios"=>$anuncios]);
     }
 
     public function buscar(Request $request)
     {
-        //$categoria = $request->get('categoria_curriculo');
+        $anuncios=DB::table('empresa as em')
+        ->join('anuncio as an', 'em.id_empresa', '=', 'an.id_empresa')
+        ->where('em.id_empresa','=','101');
+        $anuncios=$anuncios->get();
+
+        $categoria = $request->get('categoria');
         $ciudad    = $request->get('ciudad');
-        //$contrato  = $request->get('contrato_curriculo');
+        $contrato  = $request->get('contrato');
 
         $curriculo = Curriculo::orderBy('id_curriculo', 'DESC')
-                    //->categoria($categoria)
+                    ->categoria($categoria)
                      ->ciudad($ciudad)
-                    // ->contrato($contrato)
+                     ->contrato($contrato)
                     ->paginate(2);
 
-        return view('empresa/postulante.buscar', ["curriculo"=>$curriculo]);
+        return view('empresa/postulante.buscar', ["curriculo"=>$curriculo, "anuncios"=>$anuncios]);
     }
 
     public function generatePDF(Request $idCurriculo)
