@@ -39,6 +39,11 @@
                   <td>
                     <a href="{{URL::action('Postulante\ExperienciaLaboralController@editar',array('carg'=>$ex->cargo_empresa,'emp'=>$ex->nombre_empresa))}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
+                  <td>
+                    <a class="btn btn-block btn-danger" 
+                    href="{{URL::action('Postulante\ExperienciaLaboralController@destroy', array($ex->cargo_empresa,$ex->nombre_empresa))}}">
+                    Eliminar</a>
+                  </td>
               </tr>
                   
               @endforeach

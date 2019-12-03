@@ -8,6 +8,15 @@
                 <h1 class="fa fa-paper-plane">Publicar Anuncio</h1>
             </section>
         </div>
+        @if(count($errors)>0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row">
             <section class="content">
                 <div class="col-md-10">
@@ -30,11 +39,43 @@
                                 <div class="form-group">
                                     <label for="CATEGORIA">Categoria</label>
                                     <select name="CATEGORIA" class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                            <option value="Administración y Oficina">Administración y Oficina</option>
+                                            <option value="Agricultura y Campo">Agricultura y Campo</option>
+                                            <option value="Arquitectura">Arquitectura</option>
+                                            <option value="Atención al Cliente">Atención al Cliente</option>
+                                            <option value="Banca y Finanzas">Banca y Finanzas</option>
+                                            <option value="Científico e Investigación">Científico e Investigación</option>
+                                            <option value="Cocina y Repostería">Cocina y Repostería</option>
+                                            <option value="Construcción">Construcción</option>
+                                            <option value="Consultorías y Proyectos">Consultorías y Proyectos</option>
+                                            <option value="Contabilidad y Economía">Contabilidad y Economía</option>
+                                            <option value="Dirección y Gerencia">Dirección y Gerencia</option>
+                                            <option value="Diseño y Medios">Diseño y Medios</option>
+                                            <option value="Educación">Educación</option>
+                                            <option value="Industria Alimentaria">Industria Alimentaria</option>
+                                            <option value="Industria Minera">Industria Minera</option>
+                                            <option value="Industria Textil">Industria Textil</option>
+                                            <option value="Informática">Informática</option>
+                                            <option value="Ingeniería">Ingeniería</option>
+                                            <option value="Inmobiliaria">Inmobiliaria</option>
+                                            <option value="Internet">Internet</option>
+                                            <option value="Legal y Asesoría">Legal y Asesoría</option>
+                                            <option value="Logística y Almacén">Logística y Almacén</option>
+                                            <option value="Mano Obra Calificada">Mano Obra Calificada</option>
+                                            <option value="Mano Obra No Calificada">Mano Obra No Calificada</option>
+                                            <option value="Marketing y Ventas">Marketing y Ventas</option>
+                                            <option value="Medicina y Salud">Medicina y Salud</option>
+                                            <option value="Moda y Belleza">Moda y Belleza</option>
+                                            <option value="ONG y Org. Benéficas">ONG y Org. Benéficas</option>
+                                            <option value="Otros">Otros</option>
+                                            <option value="Recursos Humanos">Recursos Humanos</option>
+                                            <option value="Sector Público">Sector Público</option>
+                                            <option value="Seguridad Industrial">Seguridad Industrial</option>
+                                            <option value="Servicios Petroleros">Servicios Petroleros</option>
+                                            <option value="Sociales y Humanidades">Sociales y Humanidades</option>
+                                            <option value="Telecomunicaciones">Telecomunicaciones</option>
+                                            <option value="Turismo y Hotelería">Turismo y Hotelería</option>
+                                            <option value="Técnico">Técnico</option>
                                     </select>
                                 </div>
 

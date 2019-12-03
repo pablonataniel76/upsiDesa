@@ -26,4 +26,25 @@ class Anuncio extends Model
     protected $guarded =[
 
     ];
+
+    public function scopeCategoria($query, $categoria)
+    {
+        if($categoria){
+            return $query->where('categoria_anuncio', '=', "$categoria");
+        }
+    }
+
+    public function scopeCiudad($query, $ciudad)
+    {
+        if($ciudad){
+            return $query->where('ciudad_anuncio', '=', "$ciudad");
+        }
+    }
+
+    public function scopeContrato($query, $contrato)
+    {
+        if($contrato){
+            return $query->where('contrato_anuncio', '=', "$contrato");
+        }
+    }
 }

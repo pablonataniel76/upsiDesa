@@ -38,7 +38,7 @@ class CandidatoFormRequest extends FormRequest
             'estado_civil'=>'required|max:10|string',
             'tipo_documento_identidad'=>'required|max:20|string',
             'numero_documento_identidad'=>'required|max:20|string',
-            'premium_candidato'=>'required',
+            //'premium_candidato'=>'required',
         ];
     }
 }

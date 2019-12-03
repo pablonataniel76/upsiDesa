@@ -132,7 +132,9 @@ class PostulanteController extends Controller
         $ciudad    = $request->get('ciudad');
         $contrato  = $request->get('contrato');
 
-        $curriculo = Curriculo::orderBy('id_curriculo', 'DESC')
+        $curriculo = Curriculo::orderBy('candidato.premium_candidato','desc')
+                    ->join('candidato', 'candidato.id_candidato','=', 'curriculo.id_candidato')
+                    // ->orderBy()
                     ->categoria($categoria)
                      ->ciudad($ciudad)
                      ->contrato($contrato)

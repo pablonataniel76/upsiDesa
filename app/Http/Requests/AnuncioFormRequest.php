@@ -25,15 +25,15 @@ class AnuncioFormRequest extends FormRequest
     {
         return [
             // 'id_empresa'=>'required',
-            // 'cargo_anuncio'=>'required|max:30|string',
-            // 'categoria_anuncio'=>'required|max:30|string',
-            // 'contrato_anuncio'=>'required|max:20|string',
-            // 'descripcion_anuncio'=>'required|max:500|string',
-            // 'sueldo'=>'numeric',
-            // 'tipo_sueldo'=>'max:20|string',
-            // 'ciudad_anuncio'=>'required|max:20|string',
-            // 'publicacion_anuncio'=>'required',
-            // 'vencimiento_anuncio'=>'required'
+            'cargo_anuncio'=>'required|max:30|string',
+            'categoria_anuncio'=>'required|max:30|string',
+            'contrato_anuncio'=>'required|max:20|string',
+            'descripcion_anuncio'=>'required|max:500|string',
+            'sueldo'=>'numeric',
+            'tipo_sueldo'=>'max:20|string',
+            'ciudad_anuncio'=>'required|max:20|string',
+            'publicacion_anuncio'=>'required',
+            'vencimiento_anuncio'=>'required'
         ];
     }
 }

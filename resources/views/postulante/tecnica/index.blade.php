@@ -24,6 +24,7 @@
               <th>Ciudad</th>
               <th>Fecha del Curso</th>
               <th>Opciones</th>
+              <th>Opciones</th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +38,12 @@
                   <td>
                     <a href="{{URL::action('Postulante\EducacionTecnicaController@editar',array('inst'=>$te->institucion_tecnica,'cur'=>$te->curso_tecnico))}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
+                  <td>
+                    <a class="btn btn-block btn-danger" 
+                    href="{{URL::action('Postulante\EducacionTecnicaController@destroy', array($te->institucion_tecnica,$te->curso_tecnico))}}">
+                    Eliminar</a>
+                  </td>
+
               </tr>
                   
               @endforeach
@@ -48,6 +55,7 @@
                 <th>Pais</th>
                 <th>Ciudad</th>
                 <th>Fecha del Curso</th>
+                <th>Opciones</th>
                 <th>Opciones</th>
               </tr>
             </tfoot>

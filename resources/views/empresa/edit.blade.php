@@ -7,52 +7,61 @@
                 <h1 class="fa fa-user">Editar Datos de {{ $empresa[0]->nombre_empresa }}</h1>
             </section>
         </div>
+        @if(count($errors)>0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row">
             <section class="content">
                 <div class="col-md-10">
                     {{-- {!!Form::model(array('url'=>'empresa/','method'=>'POST','autocomplete'=>'off', 'enctype'=>'multipart/form-data'))!!} --}}
-                    {!!Form::model($empresa,['method'=>'PATCH','route'=>['empresa.update',$empresa[0]->id_empresa]])!!}
+                    {!!Form::model($empresa,['method'=>'PATCH','route'=>['empresa.update',$empresa[0]->id_empresa], 'enctype'=>'multipart/form-data'])!!}
                     {{Form::token()}}
                     <div class="container">
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="EMAIL">Email</label>
-                                    <input name="EMAIL" type="email" class="form-control" placeholder="Email" value="{{ $empresa[0]->email_empresa }}">
+                                    <label for="email_empresa">Email</label>
+                                    <input name="email_empresa" type="email" class="form-control" placeholder="Email" value="{{ $empresa[0]->email_empresa }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="CONTRASENIA">Contrasenia</label>
-                                    <input name="CONTRASENIA" type="password" class="form-control" placeholder="Contrasenia" value="{{ $empresa[0]->contrasenia_empresa }}">
+                                    <label for="contrasenia_empresa">Contrasenia</label>
+                                    <input name="contrasenia_empresa" type="password" class="form-control" placeholder="Contrasenia" value="{{ $empresa[0]->contrasenia_empresa }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="DESCRIPCION">Descripcion</label>
-                                    <textarea name="DESCRIPCION" class="form-control" rows="3" placeholder="500 caracteres">{{ $empresa[0]->descripcion_empresa }}</textarea>
+                                    <label for="descripcion_empresa">Descripcion</label>
+                                    <textarea name="descripcion_empresa" class="form-control" rows="3" placeholder="500 caracteres">{{ $empresa[0]->descripcion_empresa }}</textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="RESPONSABLE">Nombre de Responsable</label>
-                                    <input name="RESPONSABLE" type="text" class="form-control" placeholder="Responsable de Empresa" value="{{ $empresa[0]->nombre_responsable }}">
+                                    <label for="nombre_responsable">Nombre de Responsable</label>
+                                    <input name="nombre_responsable" type="text" class="form-control" placeholder="Responsable de Empresa" value="{{ $empresa[0]->nombre_responsable }}">
                                 </div>
                                     
                                 <div class="form-group">
-                                    <label for="LOGO">Logo de Empresa</label>
+                                    <label for="logo">Logo de Empresa</label>
                                     <br>
                                     <img src="../../logos_empresa/{{ $empresa[0]->logo }}" width="100" height="100">
-                                    <input name="LOGO" type="file">
+                                    <input name="logo" type="file" value="{{ $empresa[0]->logo }}">
                                 </div>
                             </div>
 
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="NEMPRESA">Nombre de Empresa</label>
-                                    <input name="NEMPRESA" type="text" class="form-control" placeholder="Nombre Empresa" value="{{ $empresa[0]->nombre_empresa }}">
+                                    <label for="nombre_empresa">Nombre de Empresa</label>
+                                    <input name="nombre_empresa" type="text" class="form-control" placeholder="Nombre Empresa" value="{{ $empresa[0]->nombre_empresa }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="CIUDAD">Ciudad</label>
-                                    <select name="CIUDAD" class="form-control">
+                                    <label for="ciudad_empresa">Ciudad</label>
+                                    <select name="ciudad_empresa" class="form-control">
                                         <option value="Cochabamba">Cochabamba</option>
                                         <option value="Santa Cruz">Santa Cruz</option>
                                         <option value="La Paz">La Paz</option>
@@ -66,33 +75,33 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="DIRECCION">Direccion</label>
-                                    <input name="DIRECCION" type="text" class="form-control" placeholder="Direccion" value="{{ $empresa[0]->direccion_empresa }}">
+                                    <label for="direccion_empresa">Direccion</label>
+                                    <input name="direccion_empresa" type="text" class="form-control" placeholder="Direccion" value="{{ $empresa[0]->direccion_empresa }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="TELEFONO">Telefono</label>
+                                    <label for="telefono_empresa">Telefono</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-phone"></i>
                                         </div>
-                                        <input name="TELEFONO" type="number" class="form-control" value="{{ $empresa[0]->telefono_empresa }}">
+                                        <input name="telefono_empresa" type="number" class="form-control" value="{{ $empresa[0]->telefono_empresa }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="CELULAR">Celular</label>
+                                    <label for="celular_empresa">Celular</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-mobile"></i>
                                         </div>
-                                        <input name="CELULAR" type="number" class="form-control" value="{{ $empresa[0]->celular_empresa }}">
+                                        <input name="celular_empresa" type="number" class="form-control" value="{{ $empresa[0]->celular_empresa }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="WEB">Sitio Web</label>
-                                    <input name="WEB" type="text" class="form-control" placeholder="www.ejemplo.com" value="{{ $empresa[0]->sitio_web }}">
+                                    <label for="sitio_web">Sitio Web</label>
+                                    <input name="sitio_web" type="text" class="form-control" placeholder="www.ejemplo.com" value="{{ $empresa[0]->sitio_web }}">
                                 </div>
                             </div>
                         </div>

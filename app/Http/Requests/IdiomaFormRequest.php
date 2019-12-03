@@ -24,7 +24,7 @@ class IdiomaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_candidato'=>'required',
+            //'id_candidato'=>'required',
             'idioma'=>'required|max:15|string',
             'nivel_escritura'=>'required|max:10|string',
             'nivel_oral'=>'required|max:10|string',

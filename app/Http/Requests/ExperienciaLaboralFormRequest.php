@@ -24,11 +24,11 @@ class ExperienciaLaboralFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_candidato'=>'required',
+            //'id_candidato'=>'required',
             'cargo_empresa'=>'required|max:30|string',
             'nombre_empresa'=>'required|max:50|string',
             'categoria_experiencia'=>'max:30|string',
-            'descripcion_experiencia'=>'max:300|string',
+            'descripcion_experiencia'=>'max:300|string|required',
             'pais_experiencia'=>'required|max:20|string',
             'ciudad_experiencia'=>'required|max:20|string',
             'fecha_inicio_experiencia'=>'required',

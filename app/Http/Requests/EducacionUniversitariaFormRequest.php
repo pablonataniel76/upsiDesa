@@ -24,7 +24,7 @@ class EducacionUniversitariaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_candidato'=>'required',
+            // 'id_candidato'=>'required',
             'universidad'=>'required|max:50|string',
             'carrera'=>'required|max:30|string',
             'pais_universidad'=>'required|max:20|string',

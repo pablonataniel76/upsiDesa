@@ -24,7 +24,7 @@ class EducacionSecundariaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_candidato'=>'required',
+            // 'id_candidato'=>'required',
             'institucion_secundaria'=>'required|max:30|string',
             'pais_secundaria'=>'required|max:20|string',
             'ciudad_secundaria'=>'required|max:20|string',

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Modelos\Empresa;
 use App\Modelos\Anuncio;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\EmpresaFormRequest;
 use App\Http\Requests\AnuncioFormRequest;
 use DB;
 
@@ -49,30 +50,29 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpresaFormRequest $request)
     {
-        //return $request;
-        if( $request->hasFile('LOGO') ){
-            $file = $request->file('LOGO');
+        if( $request->hasFile('logo') ){
+            $file = $request->file('logo');
             $nombre = time().$file->getClientOriginalName();
             $file->move(public_path().'/logos_empresa/', $nombre);
-            //return $empresa;
+            
+            $empresa=new Empresa;
+            $empresa->email_empresa         = $request->get('email_empresa');
+            $empresa->contrasenia_empresa   = $request->get('contrasenia_empresa');
+            $empresa->ciudad_empresa        = $request->get('ciudad_empresa');
+            $empresa->direccion_empresa     = $request->get('direccion_empresa');
+            $empresa->telefono_empresa      = $request->get('telefono_empresa');
+            $empresa->celular_empresa       = $request->get('celular_empresa');
+            $empresa->nombre_empresa        = $request->get('nombre_empresa');
+            $empresa->nombre_responsable    = $request->get('nombre_responsable');
+            $empresa->sitio_web             = $request->get('sitio_web');
+            $empresa->descripcion_empresa   = $request->get('descripcion_empresa');
+            $empresa->logo                  = $nombre;
+    
+            $empresa->save();
         }
 
-        $empresa=new Empresa;
-        $empresa->email_empresa         = $request->get('EMAIL');
-        $empresa->contrasenia_empresa   = $request->get('CONTRASENIA');
-        $empresa->ciudad_empresa        = $request->get('CIUDAD');
-        $empresa->direccion_empresa     = $request->get('DIRECCION');
-        $empresa->telefono_empresa      = $request->get('TELEFONO');
-        $empresa->celular_empresa       = $request->get('CELULAR');
-        $empresa->nombre_empresa        = $request->get('NEMPRESA');
-        $empresa->nombre_responsable    = $request->get('RESPONSABLE');
-        $empresa->sitio_web             = $request->get('WEB');
-        $empresa->descripcion_empresa   = $request->get('DESCRIPCION');
-        $empresa->logo                  = $nombre;
-
-        $empresa->save();
         return Redirect::to('empresa/');
     }
 
@@ -95,9 +95,9 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $anuncios=DB::table('anuncio as an')
-        ->join('empresa as em', 'em.id_empresa', '=', 'an.id_empresa')
-        ->where('an.id_empresa','=', $id);
+        $anuncios=DB::table('empresa as em')
+        //->join('empresa as em', 'em.id_empresa', '=', 'an.id_empresa')
+        ->where('em.id_empresa','=', $id);
         $anuncios=$anuncios->get();
 
         $empresa=DB::table('empresa as em')
@@ -113,30 +113,29 @@ class EmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpresaFormRequest $request, $id)
     {
-        if( $request->hasFile('LOGO') ){
-            $file = $request->file('LOGO');
+        if( $request->hasFile('logo') ){
+            $file = $request->file('logo');
             $nombre = time().$file->getClientOriginalName();
             $file->move(public_path().'/logos_empresa/', $nombre);
-            //return $empresa;
-            
+            //return $nombre;
             $empresa = Empresa::findOrFail($id);
-            $empresa->email_empresa         = $request->get('EMAIL');
-            $empresa->contrasenia_empresa   = $request->get('CONTRASENIA');
-            $empresa->ciudad_empresa        = $request->get('CIUDAD');
-            $empresa->direccion_empresa     = $request->get('DIRECCION');
-            $empresa->telefono_empresa      = $request->get('TELEFONO');
-            $empresa->celular_empresa       = $request->get('CELULAR');
-            $empresa->nombre_empresa        = $request->get('NEMPRESA');
-            $empresa->nombre_responsable    = $request->get('RESPONSABLE');
-            $empresa->sitio_web             = $request->get('WEB');
-            $empresa->descripcion_empresa   = $request->get('DESCRIPCION');
-            $empresa->logo                  = $nombre;
+            $empresa->email_empresa         = $request->get('email_empresa');
+            $empresa->contrasenia_empresa   = $request->get('contrasenia_empresa');
+            $empresa->ciudad_empresa        = $request->get('ciudad_empresa');
+            $empresa->direccion_empresa     = $request->get('direccion_empresa');
+            $empresa->telefono_empresa      = $request->get('telefono_empresa');
+            $empresa->celular_empresa       = $request->get('celular_empresa');
+            $empresa->nombre_empresa        = $request->get('nombre_empresa');
+            $empresa->nombre_responsable    = $request->get('nombre_responsable');
+            $empresa->sitio_web             = $request->get('sitio_web');
+            $empresa->descripcion_empresa   = $request->get('descripcion_empresa');
+            $empresa->logo                  = $request->get('logo');
     
             $empresa->update();
-            return Redirect::to('empresa/');
         }
+        return Redirect::to('empresa/');
 
     }
 

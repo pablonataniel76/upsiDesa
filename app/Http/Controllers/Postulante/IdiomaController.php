@@ -16,14 +16,22 @@ class IdiomaController extends Controller
     }
     public function index(Request $request){
         if($request){
+            $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
             $idiomas=DB::table('idioma as id')
             ->where('id.id_candidato','=','100001');
             $idiomas=$idiomas->get();
-            return view('postulante.idioma.index',["idiomas"=>$idiomas]);
+            return view('postulante.idioma.index',["idiomas"=>$idiomas, "candidato"=>$candidato]);
         }
     }
     public function create(){
-        return view("postulante.idioma.create");
+        $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
+        return view("postulante.idioma.create", ["candidato"=>$candidato]);
     }
     public function store(IdiomaFormRequest $request){
         $idioma=new Idioma;
@@ -39,11 +47,15 @@ class IdiomaController extends Controller
         
     }
     public function edit($idi){
+        $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
         $idioma=DB::table('idioma as idio')
             ->where('idio.id_candidato','=','100001')
             ->where('idio.idioma','=',$idi)
             ->first();
-        return view('postulante.idioma.edit',["idioma"=>$idioma]);
+        return view('postulante.idioma.edit',["idioma"=>$idioma, "candidato"=>$candidato]);
     }
     public function update(IdiomaFormRequest $request,$idi){
         $idioma=Idioma::where('id_candidato',100001)
@@ -55,7 +67,11 @@ class IdiomaController extends Controller
         ]);
         return Redirect::to('candidato/idiomas');
     }
-    public function destroy(){
-        
+    public function destroy($idi){
+        $id='100001';
+        Idioma::where('id_candidato',$id)
+        ->where('idioma',$idi)
+        ->delete();
+        return Redirect::to('candidato/idiomas');
     }
 }

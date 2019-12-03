@@ -24,7 +24,7 @@ class EducacionTecnicaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_candidato'=>'required',
+            // 'id_candidato'=>'required',
             'institucion_tecnica'=>'required|max:30|string',
             'curso_tecnico'=>'required|max:30|string',
             'pais_tecnico'=>'required|max:20|string',

@@ -73,23 +73,55 @@ Route::get('candidato/curriculo/mipdf/{ruta}','Postulante\CurriculoController@de
 Route::get('candidato/universidades/edit/{uni}/{carr}','Postulante\EducacionUniversitariaController@editar');
 Route::get('candidato/tecnicas/edit/{inst}/{cur}','Postulante\EducacionTecnicaController@editar');
 Route::get('candidato/experiencia/edit/{carg}/{emp}','Postulante\ExperienciaLaboralController@editar');
+Route::get('candidato/peticionpremium','Postulante\CandidatoController@becomePremium');
+
 
 Route::resource('candidato/curriculo', 'Postulante\CurriculoController');
 
 Route::resource('candidato/postulaciones', 'Postulante\PostulacionController');
 Route::resource('candidato/habilidades', 'Postulante\HabilidadController');
+Route::get('candidato/habilidades/{hab}/destroy', 'Postulante\HabilidadController@destroy');
 Route::resource('candidato/idiomas', 'Postulante\IdiomaController');
+Route::get('candidato/idiomas/{idi}/destroy', 'Postulante\IdiomaController@destroy');
 Route::resource('candidato/secundarias', 'Postulante\EducacionSecundariaController');
+Route::get('candidato/secundarias/{sec}/destroy', 'Postulante\EducacionSecundariaController@destroy');
 Route::resource('candidato/universidades', 'Postulante\EducacionUniversitariaController');
+Route::get('candidato/universidades/{un}/{car}/destroy', 'Postulante\EducacionUniversitariaController@destroy');
 Route::resource('candidato/tecnicas', 'Postulante\EducacionTecnicaController');
+Route::get('candidato/tecnicas/{ins}/{curt}/destroy', 'Postulante\EducacionTecnicaController@destroy');
 Route::resource('candidato/talleres', 'Postulante\CursoTallerSeminarioController');
-Route::resource('candidato/anuncios', 'Postulante\AnuncioController');
+Route::get('candidato/talleres/{tal}/destroy', 'Postulante\CursoTallerSeminarioController@destroy');
 Route::resource('candidato/experiencia', 'Postulante\ExperienciaLaboralController');
+Route::get('candidato/experiencia/{ca}/{em}/destroy', 'Postulante\ExperienciaLaboralController@destroy');
+
+Route::get('candidato/anuncio/buscar', 'Postulante\AnuncioController@buscarA')->name('buscarA');
+Route::resource('candidato/anuncio', 'Postulante\AnuncioController');
+
+Route::resource('candidato/experiencia', 'Postulante\ExperienciaLaboralController');
+
 
 //Route::get('candidato/anuncios/{id}/{id2}','Postulante\AnuncioController@mostrar');
 
 //de esta ruta solo hay candidato/create
+
 Route::resource('candidato', 'Postulante\CandidatoController');
+Route::get('candidato/edit/{idCandidato}', 'Postulante\CandidatoController@edit');
+
+//rutas administrador
+Route::get('administrador/candidatos/peticionpremium','Administrador\PremiumCandidatoController@index');
+Route::get('administrador/candidatos/peticionpremium/{id}','Administrador\PremiumCandidatoController@becomePremium');
+
 
 Route::get('administrador/candidatos','Administrador\AdministradorController@listarCandidatos');
+Route::get('administrador/candidatos/{id}/destroy', 'Administrador\AdministradorController@destroyC');
+
+
 Route::get('administrador/empresas','Administrador\AdministradorController@listarEmpresas');
+Route::get('administrador/empresas/{ide}/destroy', 'Administrador\AdministradorController@destroyE');
+
+Route::get('administrador/candidatospremium','Administrador\AdministradorController@listarCandidatosP');
+Route::get('administrador/candidatospremium/{id}/destroy', 'Administrador\AdministradorController@destroyCP');
+
+Route::get('administrador/empresaspremium','Administrador\AdministradorController@listarEmpresasP');
+Route::get('administrador/empresaspremium/{ide}/destroy', 'Administrador\AdministradorController@destroyEP');
+

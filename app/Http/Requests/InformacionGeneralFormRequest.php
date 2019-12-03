@@ -24,7 +24,7 @@ class InformacionGeneralFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_candidato'=>'required',
+            // 'id_candidato'=>'required',
             'titulo_informacion'=>'required|max:20|string',
             'categoria_informacion'=>'required|max:30|string',
             'contrato_informacion'=>'required|max:20|string',

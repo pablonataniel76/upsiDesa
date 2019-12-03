@@ -16,14 +16,22 @@ class EducacionSecundariaController extends Controller
     }
     public function index(Request $request){
         if($request){
+            $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
             $secundarias=DB::table('educacion_secundaria as es')
             ->where('es.id_candidato','=','100001');
             $secundarias=$secundarias->get();
-            return view('postulante.secundaria.index',["secundarias"=>$secundarias]);
+            return view('postulante.secundaria.index',["secundarias"=>$secundarias, "candidato"=>$candidato]);
         }
     }
     public function create(){
-        return view("postulante.secundaria.create");
+        $candidato=DB::table('candidato as ca')
+        ->where('ca.id_candidato','=','100001');
+        $candidato=$candidato->get();
+
+        return view("postulante.secundaria.create", ["candidato"=>$candidato]);
     }
     public function store(EducacionSecundariaFormRequest $request){
         $secundaria=new EducacionSecundaria;
@@ -39,11 +47,15 @@ class EducacionSecundariaController extends Controller
         
     }
     public function edit($sec){
+        $candidato=DB::table('candidato as ca')
+        ->where('ca.id_candidato','=','100001');
+        $candidato=$candidato->get();
+
         $secundaria=DB::table('educacion_secundaria as es')
             ->where('es.id_candidato','=','100001')
             ->where('es.institucion_secundaria','=',$sec)
             ->first();
-        return view('postulante.secundaria.edit',["secundaria"=>$secundaria]);
+        return view('postulante.secundaria.edit',["secundaria"=>$secundaria, "candidato"=>$candidato]);
     }
     public function update(EducacionSecundariaFormRequest $request,$sec){
        
@@ -56,7 +68,11 @@ class EducacionSecundariaController extends Controller
         ]);
         return Redirect::to('candidato/secundarias');
     }
-    public function destroy(){
-        
+    public function destroy($sec){
+        $id='100001';
+        EducacionSecundaria::where('id_candidato',$id)
+        ->where('institucion_secundaria',$sec)
+        ->delete();
+        return Redirect::to('candidato/secundarias');
     }
 }

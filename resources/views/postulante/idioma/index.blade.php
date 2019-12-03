@@ -23,6 +23,7 @@
               <th>Nivel Oral</th>
               <th>Nivel de Lectura</th>
               <th>Opciones</th>
+              <th>Opciones</th>
             </tr>
             </thead>
             <tbody>
@@ -35,8 +36,13 @@
                   <td>
                     <a href="{{URL::action('Postulante\IdiomaController@edit',$id->idioma)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
+                  <td>
+                      <a class="btn btn-block btn-danger" 
+                      href="{{URL::action('Postulante\IdiomaController@destroy', $id->idioma)}}">
+                      Eliminar</a>
+                  </td>
               </tr>
-                  
+               @include('postulante.idioma.eliminar')   
               @endforeach
             </tbody>
             <tfoot>
@@ -45,6 +51,7 @@
                 <th>Nivel de Escritura</th>
                 <th>Nivel Oral</th>
                 <th>Nivel de Lectura</th>
+                <th>Opciones</th>
                 <th>Opciones</th>
               </tr>
             </tfoot>

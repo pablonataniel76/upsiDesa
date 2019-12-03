@@ -16,14 +16,22 @@ class HabilidadController extends Controller
     }
     public function index(Request $request){
         if($request){
+            $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
             $habilidades=DB::table('habilidad as ha')
             ->where('ha.id_candidato','=','100001');
             $habilidades=$habilidades->get();
-            return view('postulante.habilidad.index',["habilidades"=>$habilidades]);
+            return view('postulante.habilidad.index',["habilidades"=>$habilidades, "candidato"=>$candidato]);
         }
     }
     public function create(){
-        return view("postulante.habilidad.create");
+        $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
+        return view("postulante.habilidad.create", ["candidato"=>$candidato]);
     }
     public function store(HabilidadFormRequest $request){
         $habilidad=new Habilidad;
@@ -37,11 +45,15 @@ class HabilidadController extends Controller
         
     }
     public function edit($hab){
+        $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
         $habilidad=DB::table('habilidad as ha')
             ->where('ha.id_candidato','=','100001')
             ->where('ha.habilidad','=',$hab)
             ->first();
-        return view('postulante.habilidad.edit',["habilidad"=>$habilidad]);
+        return view('postulante.habilidad.edit',["habilidad"=>$habilidad, "candidato"=>$candidato]);
     }
     public function update(HabilidadFormRequest $request,$hab){
        
@@ -52,7 +64,11 @@ class HabilidadController extends Controller
         ]);
         return Redirect::to('candidato/habilidades');
     }
-    public function destroy(){
-        
+    public function destroy($hab){
+        $id='100001';
+        Habilidad::where('id_candidato',$id)
+        ->where('habilidad',$hab)
+        ->delete();
+        return Redirect::to('candidato/habilidades');
     }
 }

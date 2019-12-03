@@ -23,6 +23,7 @@
               <th>Lugar</th>
               <th>Fecha del Curso, Taller, Seminario</th>
               <th>Opciones</th>
+              <th>Opciones</th>
             </tr>
             </thead>
             <tbody>
@@ -35,8 +36,16 @@
                   <td>
                     <a href="{{URL::action('Postulante\CursoTallerSeminarioController@edit',$cts->nombre_taller)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
+                  <td>
+                      <a class="btn btn-block btn-danger" 
+                      href="{{URL::action('Postulante\CursoTallerSeminarioController@destroy', $cts->nombre_taller)}}">
+                      Eliminar</a>
+                    {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger-{{$cts->nombre_taller}}">
+                      Eliminar
+                    </button> --}}
+                  </td>
               </tr>
-                  
+              @include('postulante.taller.eliminar')   
               @endforeach
             </tbody>
             <tfoot>
@@ -45,6 +54,7 @@
                 <th>Impartido Por</th>
                 <th>Lugar</th>
                 <th>Fecha del Curso, Taller, Seminario</th>
+                <th>Opciones</th>
                 <th>Opciones</th>
               </tr>
             </tfoot>

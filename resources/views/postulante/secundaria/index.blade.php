@@ -5,10 +5,10 @@
   <div class="col-xs-12">
     <div class="box">
         <div class="box-header">
+          <section class="content-header">
+              <h1 class="fa fa-graduation-cap">Mis Colegios de Secundaria</h1>
+          </section>
           <div class="col col-xs-4">
-              <section class="content-header">
-                  <h1 class="fa fa-graduation-cap">Mis Colegios de Secundaria</h1>
-              </section>
               <br>
             <a href="secundarias/create"> <button type="button" class="btn btn-block btn-success">Añadir Colegio Secundaria</button></a> 
           </div>
@@ -23,6 +23,7 @@
               <th>Ciudad</th>
               <th>Fecha Fin</th>
               <th>Opciones</th>
+              <th>Opciones</th>
             </tr>
             </thead>
             <tbody>
@@ -35,8 +36,16 @@
                   <td>
                     <a href="{{URL::action('Postulante\EducacionSecundariaController@edit',$se->institucion_secundaria)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
                   </td>
+                  <td>
+                      <a class="btn btn-block btn-danger" 
+                      href="{{URL::action('Postulante\EducacionSecundariaController@destroy', $se->institucion_secundaria)}}">
+                      Eliminar</a>
+                    {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger-{{$se->institucion_secundaria}}">
+                      Eliminar
+                    </button> --}}
+                  </td>
               </tr>
-                  
+              @include('postulante.secundaria.eliminar')
               @endforeach
             </tbody>
             <tfoot>
@@ -45,6 +54,7 @@
                 <th>Pais</th>
                 <th>Ciudad</th>
                 <th>Fecha Fin</th>
+                <th>Opciones</th>
                 <th>Opciones</th>
               </tr>
             </tfoot>

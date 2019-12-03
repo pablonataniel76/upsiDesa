@@ -22,19 +22,17 @@
                 <br>
                 <i class="description">Publicado en: {{$an->publicacion_anuncio}}</i>
                 <br>
-
-                      <div class="col-md-6 col-sm-6">
-                        <a class="btn btn-block btn-warning" href="{{
-                                URL::action('Empresa\AnunciosController@edit',
-                                array('idAnuncio'=>$an->id_anuncio))}}"
-                                class="list-group-item list-group-item-action">Editar</a>
-                      </div>
-                      <div class="col-md-6 col-sm-6">
-                          <a class="btn btn-block btn-danger" 
-                            href="{{URL::action('Empresa\AnunciosController@destroy', $an->id_anuncio)}}">
-                            Eliminar</a>
-                      </div>
-
+                <div class="col-md-6 col-sm-6">
+                  <a class="btn btn-block btn-warning" href="{{
+                          URL::action('Empresa\AnunciosController@edit',
+                          array('idAnuncio'=>$an->id_anuncio))}}"
+                          class="list-group-item list-group-item-action">Editar</a>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <a class="btn btn-block btn-danger" 
+                      href="{{URL::action('Empresa\AnunciosController@destroy', $an->id_anuncio)}}">
+                      Eliminar</a>
+                </div>
               </div>
             </div>
           </div>

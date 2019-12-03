@@ -17,14 +17,22 @@ class ExperienciaLaboralController extends Controller
     }
     public function index(Request $request){
         if($request){
+            $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
             $experiencias=DB::table('experiencia_laboral as el')
             ->where('el.id_candidato','=','100001');
             $experiencias=$experiencias->get();
-            return view('postulante.experiencia.index',["experiencias"=>$experiencias]);
+            return view('postulante.experiencia.index',["experiencias"=>$experiencias, "candidato"=>$candidato]);
         }
     }
     public function create(){
-        return view("postulante.experiencia.create");
+        $candidato=DB::table('candidato as ca')
+        ->where('ca.id_candidato','=','100001');
+        $candidato=$candidato->get();
+
+        return view("postulante.experiencia.create", ["candidato"=>$candidato]);
     }
     public function store(ExperienciaLaboralFormRequest $request){
         $experiencia=new ExperienciaLaboral;
@@ -48,13 +56,17 @@ class ExperienciaLaboralController extends Controller
         
     }
     public function editar($carg,$emp){
+        $candidato=DB::table('candidato as ca')
+        ->where('ca.id_candidato','=','100001');
+        $candidato=$candidato->get();
+
         Session::put('empresa', $emp);
         $experiencia=DB::table('experiencia_laboral as ex')
             ->where('ex.id_candidato','=','100001')
             ->where('ex.cargo_empresa','=',$carg)
             ->where('ex.nombre_empresa','=',$emp)
             ->first();
-        return view('postulante.experiencia.edit',["experiencia"=>$experiencia]);
+        return view('postulante.experiencia.edit',["experiencia"=>$experiencia, "candidato"=>$candidato]);
     }
     public function update(ExperienciaLaboralFormRequest $request,$carg){
         $emp=Session::get('empresa');
@@ -76,7 +88,12 @@ class ExperienciaLaboralController extends Controller
         ]);
         return Redirect::to('candidato/experiencia');
     }
-    public function destroy(){
-        
+    public function destroy($ca,$em){
+        $id='100001';
+        ExperienciaLaboral::where('id_candidato',$id)
+        ->where('cargo_empresa',$ca)
+        ->where('nombre_empresa',$em)
+        ->delete();
+        return Redirect::to('candidato/experiencia');
     }
 }

@@ -24,14 +24,29 @@ class CurriculoController extends Controller
     }
     public function index(Request $request){
         if($request){
+            $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
             $curriculos=DB::table('curriculo as cu')
             ->where('cu.id_candidato','=','100001');
             $curriculos=$curriculos->get();
-            return view('postulante.curriculo.index',["curriculos"=>$curriculos]);
+            return view('postulante.curriculo.index',["curriculos"=>$curriculos, "candidato"=>$candidato]);
         }
     }
     public function create(){
-        return view('postulante.curriculo.create');
+        $id='100001';
+
+        $candidato=DB::table('candidato as ca')
+        ->where('ca.id_candidato','=',$id)
+        ->get();
+
+        $cantidadcu=DB::table('curriculo as cu')
+        ->where('cu.id_candidato','=',$id)
+        ->count();
+
+        return view('postulante.curriculo.create',["cantidadcu"=>$cantidadcu,
+                                                    "candidato"=>$candidato]);
     }
     public function store(InformacionGeneralFormRequest $request){
         $id='100001';
@@ -81,10 +96,14 @@ class CurriculoController extends Controller
     }
     public function seleccionar(Request $request){
         if($request){
+            $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
             $curriculos=DB::table('curriculo as cu')
             ->where('cu.id_candidato','=','100001');
             $curriculos=$curriculos->get();
-            return view('postulante.anuncio.modal',["curriculos"=>$curriculos]);
+            return view('postulante.anuncio.modal',["curriculos"=>$curriculos, "candidato"=>$candidato]);
         }
     }
 

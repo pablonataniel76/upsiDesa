@@ -21,6 +21,7 @@
               <th>Habilidad</th>
               <th>Años de Experiencia</th>
               <th>Opciones</th>
+              <th>Opciones</th>
             </tr>
             </thead>
             <tbody>
@@ -30,15 +31,24 @@
                   <td>{{$ha->anios_habilidad}}</td>
                   <td>
                     <a href="{{URL::action('Postulante\HabilidadController@edit',$ha->habilidad)}}"> <button type="button" class="btn btn-block btn-info">Editar</button></a> 
-            </td>
+                  </td>
+                  <td>
+                      <a class="btn btn-block btn-danger" 
+                      href="{{URL::action('Postulante\HabilidadController@destroy', $ha->habilidad)}}">
+                      Eliminar</a>
+                      {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger-{{$ha->habilidad}}">
+                        Eliminar
+                      </button> --}}
+                    </td>
               </tr>
-                  
+              @include('postulante.habilidad.eliminar')   
               @endforeach
             </tbody>
             <tfoot>
               <tr>
                 <th>Habilidad</th>
                 <th>Años de Experiencia</th>
+                <th>Opciones</th>
                 <th>Opciones</th>
               </tr>
             </tfoot>

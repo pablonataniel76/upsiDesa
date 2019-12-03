@@ -1,7 +1,11 @@
 @extends('layouts.postulante')
 
 @section('content')
-<div class="row justify-content-start">
+ @if ($cantidadcu >= 3 && $candidato[0]->premium_candidato=='0')
+     @include('postulante.registro.premium')
+
+ @else
+ <div class="row justify-content-start">
     <div class="col-md-11">
         <div class="box box-primary">
                 <div class="box-header">
@@ -152,4 +156,5 @@
         </div>
     </div>
 </div>
+ @endif
 @endsection

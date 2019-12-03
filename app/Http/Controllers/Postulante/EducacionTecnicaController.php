@@ -17,14 +17,22 @@ class EducacionTecnicaController extends Controller
     }
     public function index(Request $request){
         if($request){
+            $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
             $tecnicas=DB::table('educacion_tecnica as et')
             ->where('et.id_candidato','=','100001');
             $tecnicas=$tecnicas->get();
-            return view('postulante.tecnica.index',["tecnicas"=>$tecnicas]);
+            return view('postulante.tecnica.index',["tecnicas"=>$tecnicas, "candidato"=>$candidato]);
         }
     }
     public function create(){
-        return view("postulante.tecnica.create");
+        $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
+        return view("postulante.tecnica.create", ["candidato"=>$candidato]);
     }
     public function store(EducacionTecnicaFormRequest $request){
         $tecnica=new EducacionTecnica;
@@ -41,13 +49,17 @@ class EducacionTecnicaController extends Controller
         
     }
     public function editar($inst,$cur){
+        $candidato=DB::table('candidato as ca')
+            ->where('ca.id_candidato','=','100001');
+            $candidato=$candidato->get();
+
         Session::put('curso', $cur);
         $tecnica=DB::table('educacion_tecnica as et')
             ->where('et.id_candidato','=','100001')
             ->where('et.institucion_tecnica','=',$inst)
             ->where('et.curso_tecnico','=',$cur)
             ->first();
-        return view('postulante.tecnica.edit',["tecnica"=>$tecnica]);
+        return view('postulante.tecnica.edit',["tecnica"=>$tecnica, "candidato"=>$candidato]);
     }
     public function update(EducacionTecnicaFormRequest $request,$inst){
         $cur=Session::get('curso');
@@ -62,7 +74,12 @@ class EducacionTecnicaController extends Controller
         ]);
         return Redirect::to('candidato/tecnicas');
     }
-    public function destroy(){
-        
+    public function destroy($ins,$curt){
+        $id='100001';
+        EducacionTecnica::where('id_candidato',$id)
+        ->where('institucion_tecnica',$ins)
+        ->where('curso_tecnico',$curt)
+        ->delete();
+        return Redirect::to('candidato/tecnicas');
     }
 }

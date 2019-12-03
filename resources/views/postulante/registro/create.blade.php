@@ -21,7 +21,7 @@
                 <div class="row">
                     <section class="content">
                         <div class="col-md-10">
-                                {!!Form::open(array('url'=>'candidato','method'=>'POST','autocomplete'=>'off'))!!}
+                                {!!Form::open(array('url'=>'candidato','method'=>'POST','autocomplete'=>'off', 'enctype'=>'multipart/form-data'))!!}
                                 {{Form::token()}}
                                 <div class="container">
                                     <div class="row">
@@ -128,22 +128,21 @@
                                                         
                                                         <div class="row">
                                                             <div class="col-xs-8">
-                                                                <div class="checkbox icheck">
-                                                                <label>
-                                                                    <input type="checkbox"> Acepto <a href="#">Términos de Uso y la Política de Privacidad</a>
-                                                                </label>
+                                                                <div class="form-group">
+                                                                    <label for="foto">Logo de Usuario</label>
+                                                                    <input name="foto" type="file">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-xs-6">
-                                                                <button type="submit" class="btn btn-primary ">REGISTRARSE</button>
-                                                                <button type="reset" class="btn btn-danger">CANCELAR</button>
-                                                            </div>
-                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                            <div class="row">
+                                                    <div class="">
+                                                        <button type="submit" class="btn btn-primary ">REGISTRARSE</button>
+                                                        <button type="reset" class="btn btn-danger">CANCELAR</button>
+                                                    </div>
+                                                </div>                      
                                 </div>
                                 {!! Form::close() !!}
                         </div>
